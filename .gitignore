@@ -1,0 +1,218 @@
+# Top-level ignores for CCDB (C/C++ with CMake/Autotools)
+
+# --- OS/Editor/IDE ---
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.temp
+*~
+.#*
+*.bak
+*.orig
+*.rej
+.idea/
+.vscode/
+*.code-workspace
+
+# --- Python helpers ---
+__pycache__/
+*.py[cod]
+
+# --- Compiler/Linker outputs ---
+*.o
+*.obj
+*.lo
+*.la
+*.a
+*.lib
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exp
+*.pdb
+*.ilk
+*.pch
+*.d
+
+# Coverage and profiling
+*.gcno
+*.gcda
+*.gcov
+gmon.out
+*.prof
+callgrind.out.*
+cachegrind.out.*
+massif.out.*
+
+# --- CMake ---
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+Testing/
+_CPack_Packages/
+CPackOutput.log
+
+# Common build trees
+build/
+build-*/
+out/
+dist/
+
+# Make/Ninja
+Makefile
+*.make
+*.ninja
+.ninja_log
+.ninja_deps
+
+# --- Autotools/Libtool ---
+autom4te.cache/
+config.log
+config.status
+libtool
+.deps/
+.libs/
+stamp-h1
+
+# --- Logs ---
+*.log
+*.out
+*.err
+
+# --- Archives ---
+*.7z
+*.zip
+*.tar
+*.gz
+*.bz2
+*.xz
+
+# --- Core dumps ---
+core
+core.*
+*.core
+
+# --- Project-specific ephemeral in BUILD ---
+# (scripts in BUILD are tracked; this only filters artifacts)
+BUILD/**/*.o
+BUILD/**/*.so
+BUILD/**/*.a
+BUILD/**/*.dylib
+BUILD/**/ccdb
+BUILD/**/ccdb~
+# Build directories
+BUILD/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.make
+install_manifest.txt
+
+# Build artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.app
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+!cmake/*.cmake
+
+# Compiler generated files
+*.gcno
+*.gcda
+*.gcov
+*.su
+*.idb
+*.pdb
+
+# Debug files
+*.dSYM/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.orig
+*.rej
+
+# MySQL specific
+mysql-test/var/
+mysql-test/r/
+mysql-test/t/
+*.err
+*.pid
+*.sock
+*.sock.lock
+
+# Package files
+*.deb
+*.rpm
+*.tar.gz
+*.zip
+
+# Documentation build
+Docs/html/
+Docs/latex/
+
+# Test coverage
+coverage/
+*.gcov
+*.info
+
+# Valgrind output
+*.valgrind
+
+# Profiling data
+*.prof
+*.gprof
+
+# Dependency files
+*.d
+*.deps
+
+# Backup files
+*.save
+*.old
+*.backup
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

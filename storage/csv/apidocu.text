@@ -1,0 +1,62 @@
+SQL Commands:
+
+CCDB OPENDB uri
+CCDB CLOSEDB uri
+CCDB PORT uri
+CCDB OPENTABLE uri
+SHOW CCTABLES ccdb_database_uri 
+SHOW CCDB PUBLISH STATUS uri
+SHOW CCDB STATUS uri
+CCDB PUBLISH uri
+LOCK CCTABLE uri
+UNLOCK CCTABLE uri
+
+Syntax:
+
+    uri syntax: ccnx://<ccnx 1>/<ccnx n>/<database_name>/<table_name>
+    	Sample: ccnx://ccvldb.org/satellite/instrument/track
+		ccnx://ccvldb.org/cryosat2/altimeter/track4
+
+    ccdb_database_uri syntax: ccnx://<ccnx 1>/<ccnx n>/<database_name>
+        Sample: ccnx://ccvldb.org/satellite/instrument
+
+Lock Functions:
+
+char* ccdb_mutex_check(string uri)
+char* ccdb_mutex_release(string uri)
+std::string ccdb_mutex_lock(string uri, string node, string user)
+char* ccdb_publish_status(string uri)
+char* ccdb_show_status(string uri)
+
+
+
+Lock Function Return Codes & TEST:
+
+
+ccdb_mutex_check() 
+    OK/tested: 0 
+    NOK/tested: -101
+	
+ccdb_mutex_release()
+    OK/TESTED: "SUCCESS"
+    NOK:
+
+
+Zookeeper Nodes/Path:
+Base Prefix: /
+Mutexes:
+
+/ccdb/mutexes
+
+    struct mutex_ccdb_table {
+        string CCNx_URI; 
+    	bool state; // 0:unlocked, 1:locked
+    	bool published; // 0:non-published, 1: published
+    	string node;\\ string user;
+    }
+
+Sample Zookeeper entry:
+    Node: ccnx:/ccvldb.org/cryosat2/altimeter/track1
+    SQL:  ccnx$_ccvldborg_cryosat2_altimeter_track1
+    	  ccnx:---ccvldborg---cryosat2---altimeter---track1
+    data: ---1---0---vega---ccdbuser

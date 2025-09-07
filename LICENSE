@@ -1,0 +1,13 @@
+This project derives from MariaDB/MySQL components and follows the same licensing terms.
+
+Primary license: GNU General Public License, version 2.0 (GPL-2.0)
+See: COPYING
+
+Libraries under the Lesser General Public License, version 2.1 (LGPL-2.1)
+See: COPYING.LESSER
+
+Where individual files include explicit license headers or exceptions, those terms
+apply to those files. In the absence of such a header, the GPL-2.0 applies.
+
+For full license text, consult the files referenced above.
+

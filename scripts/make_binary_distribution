@@ -1,0 +1,1 @@
+cd /opt/mariadb.git/trunk && '/usr/bin/cpack' -G TGZ --config CPackConfig.cmake

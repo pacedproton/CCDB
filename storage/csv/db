@@ -1,0 +1,593 @@
+../../sql/sql_insert.cc:    Name_resolution_context *context= &select_lex->context;
+../../sql/sql_insert.cc:    select_lex->no_wrap_view_item= TRUE;
+../../sql/sql_insert.cc:  Name_resolution_context *context= &select_lex->context;
+../../sql/sql_insert.cc:    for (SELECT_LEX_UNIT *un= select_lex->first_inner_unit();
+../../sql/sql_insert.cc:    DBUG_ASSERT (!select_lex->group_list.elements);
+../../sql/sql_insert.cc:      select_lex->no_wrap_view_item= TRUE;
+../../sql/sql_insert.cc:      select_lex->no_wrap_view_item= FALSE;
+../../sql/sql_insert.cc:    select_lex->fix_prepare_information(thd, &fake_conds, &fake_conds);
+../../sql/sql_insert.cc:    select_lex->first_execution= 0;
+../../sql/sql_insert.cc:                           &select_lex->where, TRUE, FALSE, FALSE))
+../../sql/sql_insert.cc:  DBUG_ASSERT(select_lex->leaf_tables.elements != 0);
+../../sql/sql_insert.cc:  List_iterator<TABLE_LIST> ti(select_lex->leaf_tables);
+../../sql/sql_insert.cc:  if (select_lex->first_cond_optimization)
+../../sql/sql_insert.cc:    insert_tables= select_lex->insert_tables;
+../../sql/sql_insert.cc:      select_lex->leaf_tables_exec.push_back(table);
+../../sql/sql_insert.cc:  insert_tables= select_lex->insert_tables;
+Binary file ../../sql/mysqld matches
+../../sql/sql_base.h:    table_list->select_lex->master_unit()->derived : 0;
+../../sql/item_func.cc:         derived= derived->select_lex->master_unit()->derived)
+../../sql/sql_prepare.cc:  if (select_lex->item_list.elements)
+../../sql/sql_prepare.cc:    select_lex->context.resolve_in_select_list= TRUE;
+../../sql/sql_prepare.cc:  lex->select_lex.context.resolve_in_table_list_only(select_lex->
+../../sql/sql_delete.cc:      if (select_lex->setup_ref_array(thd, order_list->elements) ||
+../../sql/sql_delete.cc:	  setup_order(thd, select_lex->ref_pointer_array, &tables,
+../../sql/sql_delete.cc:  if (select_lex->optimize_unflattened_subqueries(false))
+../../sql/sql_delete.cc:                                    select_lex->leaf_tables, FALSE, 
+../../sql/sql_delete.cc:      setup_conds(thd, table_list, select_lex->leaf_tables, conds) ||
+../../sql/sql_delete.cc:  if (select_lex->inner_refs_list.elements &&
+../../sql/sql_delete.cc:    fix_inner_refs(thd, all_fields, select_lex, select_lex->ref_pointer_array))
+../../sql/sql_delete.cc:  select_lex->fix_prepare_information(thd, conds, &fake_conds); 
+../../sql/sql_delete.cc:  if (select_lex->first_cond_optimization)
+../../sql/sql_delete.cc:    if (select_lex->handle_derived(thd->lex, DT_MERGE))
+../../sql/sql_show.cc.save:                                (select_lex->options | thd->variables.option_bits |
+../../sql/sql_show.cc.save:  table_list->select_lex->options |= OPTION_SCHEMA_TABLE;
+../../sql/item.cc:      last_checked_context->select_lex->master_unit()->item;
+../../sql/item.cc:          if (!last_checked_context->select_lex->having_fix_field &&
+../../sql/item.cc:      outer_context->select_lex->inner_refs_list.push_back((Item_outer_ref*)rf);
+../../sql/item.cc:    if (last_checked_context->select_lex->having_fix_field)
+../../sql/item.cc:        !context->select_lex->is_merged_child_of(cached_table->select_lex) &&
+../../sql/item.cc:      select_lex->set_non_agg_field_used(true);
+../../sql/item.cc:        select_lex->set_non_agg_field_used(true);
+../../sql/item.cc:          last_checked_context->select_lex->master_unit()->item;
+../../sql/item.cc:                  last_checked_context->select_lex->master_unit()->item;
+../../sql/item.cc:            last_checked_context->select_lex->nest_level)
+../../sql/item.cc:                        last_checked_context->select_lex->nest_level);
+../../sql/item.cc:          last_checked_context->select_lex->nest_level)
+../../sql/item.cc:                      last_checked_context->select_lex->nest_level);
+../../sql/sql_show.cc:                                (select_lex->options | thd->variables.option_bits |
+../../sql/sql_show.cc:  table_list->select_lex->options |= OPTION_SCHEMA_TABLE;
+../../sql/sql_partition_admin.cc:  TABLE_LIST *first_table= (TABLE_LIST*) select_lex->table_list.first;
+../../sql/sql_partition_admin.cc:  DBUG_ASSERT(select_lex->db);
+../../sql/sql_view.cc:    List_iterator_fast<Item> it(select_lex->item_list);
+../../sql/sql_view.cc:    if (lex->view_list.elements != select_lex->item_list.elements)
+../../sql/sql_view.cc:  make_valid_column_names(select_lex->item_list);
+../../sql/sql_view.cc:  if (check_duplicate_names(select_lex->item_list, 1))
+../../sql/sql_view.cc:        (table->select_lex->master_unit() != &old_lex->unit ||
+../../sql/sql_view.cc:        table->select_lex->select_n_having_items;
+../../sql/sql_view.cc:      if (!table->select_lex->master_unit()->is_union() &&
+../../sql/sql_view.cc:          table->select_lex->order_list.elements == 0)
+../../sql/sql_view.cc:        table->select_lex->order_list.push_back(&lex->select_lex.order_list);
+../../sql/sql_view.cc:            !table->select_lex->master_unit()->is_union())
+../../sql/sql_yacc.yy:                      $3->select_lex->master_unit()->is_union() &&
+../../sql/sql_yacc.yy:                      ($3->select_lex->master_unit()->first_select() ==
+../../sql/sql_update.cc:  if (select_lex->optimize_unflattened_subqueries(false))
+../../sql/sql_update.cc:  if (select_lex->inner_refs_list.elements &&
+../../sql/sql_update.cc:    fix_inner_refs(thd, all_fields, select_lex, select_lex->ref_pointer_array))
+../../sql/sql_update.cc:  if (setup_tables_and_check_access(thd, &select_lex->context, 
+../../sql/sql_update.cc:                                    &select_lex->top_join_list,
+../../sql/sql_update.cc:                                    select_lex->leaf_tables,
+../../sql/sql_update.cc:      setup_conds(thd, table_list, select_lex->leaf_tables, conds) ||
+../../sql/sql_update.cc:      select_lex->setup_ref_array(thd, order_num) ||
+../../sql/sql_update.cc:      setup_order(thd, select_lex->ref_pointer_array,
+../../sql/sql_update.cc:  select_lex->fix_prepare_information(thd, conds, &fake_conds);
+../../sql/sql_update.cc:  res= mysql_select(thd, &select_lex->ref_pointer_array,
+../../sql/sql_update.cc:                    table_list, select_lex->with_wild,
+../../sql/sql_update.cc:    if (table_ref->check_option && !join->select_lex->uncacheable)
+../../sql/sql_update.cc:      for (tmp_unit= join->select_lex->first_inner_unit();
+../../sql/sql_update.cc:            join->select_lex->uncacheable|= UNCACHEABLE_CHECKOPTION;
+../../sql/sql_select.cc:  if (select_lex->master_unit()->is_union() || 
+../../sql/sql_select.cc:      select_lex->master_unit()->fake_select_lex)
+../../sql/sql_select.cc:    res= mysql_select(thd, &select_lex->ref_pointer_array,
+../../sql/sql_select.cc:		      select_lex->table_list.first,
+../../sql/sql_select.cc:		      select_lex->with_wild, select_lex->item_list,
+../../sql/sql_select.cc:		      select_lex->where,
+../../sql/sql_select.cc:		      select_lex->order_list.elements +
+../../sql/sql_select.cc:		      select_lex->group_list.elements,
+../../sql/sql_select.cc:		      select_lex->order_list.first,
+../../sql/sql_select.cc:		      select_lex->group_list.first,
+../../sql/sql_select.cc:		      select_lex->having,
+../../sql/sql_select.cc:		      select_lex->options | thd->variables.option_bits |
+../../sql/sql_select.cc:  Item_subselect *subq_predicate= subq_select_lex->master_unit()->item;
+../../sql/sql_select.cc:  if (subq_select_lex->options & SELECT_DISTINCT)
+../../sql/sql_select.cc:    subq_select_lex->join->select_distinct= false;
+../../sql/sql_select.cc:    subq_select_lex->options&= ~SELECT_DISTINCT;
+../../sql/sql_select.cc:  if (subq_select_lex->group_list.elements &&
+../../sql/sql_select.cc:      !subq_select_lex->with_sum_func && !subq_select_lex->join->having)
+../../sql/sql_select.cc:    subq_select_lex->join->group_list= NULL;
+../../sql/sql_select.cc:    subq_select_lex->group_list.empty();
+../../sql/sql_select.cc:  if (subq_select_lex->group_list.elements &&
+../../sql/sql_select.cc:      !subq_select_lex->with_sum_func && !subq_select_lex->join->having)
+../../sql/sql_select.cc:    subq_select_lex->join->group_list= NULL;
+../../sql/sql_select.cc:    subq_select_lex->group_list.empty();
+../../sql/sql_select.cc:  select_lex->join= this;
+../../sql/sql_select.cc:  join_list= &select_lex->top_join_list;
+../../sql/sql_select.cc:  if (select_lex->handle_derived(thd->lex, DT_PREPARE))
+../../sql/sql_select.cc:      setup_tables_and_check_access(thd, &select_lex->context, join_list,
+../../sql/sql_select.cc:                                    tables_list, select_lex->leaf_tables,
+../../sql/sql_select.cc:  if (select_lex->master_unit()->item &&                               // 1)
+../../sql/sql_select.cc:      select_lex->first_cond_optimization &&                           // 2)
+../../sql/sql_select.cc:      select_lex->with_sum_func && !group_list)
+../../sql/sql_select.cc:  table_count= select_lex->leaf_tables.elements;
+../../sql/sql_select.cc:  List_iterator_fast<TABLE_LIST> li(select_lex->leaf_tables);
+../../sql/sql_select.cc:      select_lex->setup_ref_array(thd, og_num) ||
+../../sql/sql_select.cc:			  select_lex->leaf_tables, fields_list,
+../../sql/sql_select.cc:			  &hidden_group_fields, &select_lex->select_n_reserved))
+../../sql/sql_select.cc:    select_lex->having_fix_field= 1;
+../../sql/sql_select.cc:    select_lex->having_fix_field= 0;
+../../sql/sql_select.cc:  select_lex->fix_prepare_information(thd, &conds, &having);
+../../sql/sql_select.cc:  if (select_lex->inner_sum_func_list)
+../../sql/sql_select.cc:    Item_sum *end=select_lex->inner_sum_func_list;
+../../sql/sql_select.cc:  if (select_lex->inner_refs_list.elements &&
+../../sql/sql_select.cc:      !(select_lex->master_unit()->item &&
+../../sql/sql_select.cc:        select_lex->master_unit()->item->is_in_predicate() &&
+../../sql/sql_select.cc:        ((Item_in_subselect*)select_lex->master_unit()->item)->
+../../sql/sql_select.cc:      select_lex->non_agg_field_used() &&
+../../sql/sql_select.cc:      select_lex->agg_func_used())
+../../sql/sql_select.cc:  if (select_lex->olap == ROLLUP_TYPE && rollup_init())
+../../sql/sql_select.cc:  if (select_lex->handle_derived(thd->lex, DT_OPTIMIZE))
+../../sql/sql_select.cc:  if (select_lex->first_cond_optimization)
+../../sql/sql_select.cc:    if (select_lex->handle_derived(thd->lex, DT_MERGE))
+../../sql/sql_select.cc:    table_count= select_lex->leaf_tables.elements;
+../../sql/sql_select.cc:    select_lex->update_used_tables();
+../../sql/sql_select.cc:  if(select_lex->first_cond_optimization &&
+../../sql/sql_select.cc:  if (select_lex->first_cond_optimization)
+../../sql/sql_select.cc:    /* dump_TABLE_LIST_graph(select_lex, select_lex->leaf_tables); */
+../../sql/sql_select.cc:    /* dump_TABLE_LIST_graph(select_lex, select_lex->leaf_tables); */
+../../sql/sql_select.cc:    select_lex->update_used_tables();
+../../sql/sql_select.cc:  table_count= select_lex->leaf_tables.elements;
+../../sql/sql_select.cc:    if (select_lex->save_leaf_tables(thd))
+../../sql/sql_select.cc:    if (select_lex->where)
+../../sql/sql_select.cc:      select_lex->cond_value= cond_value;
+../../sql/sql_select.cc:    if (select_lex->having)
+../../sql/sql_select.cc:      select_lex->having_value= having_value;
+../../sql/sql_select.cc:    List_iterator_fast<TABLE_LIST> li(select_lex->leaf_tables);
+../../sql/sql_select.cc:    if ((res=opt_sum_query(thd, select_lex->leaf_tables, all_fields, conds)))
+../../sql/sql_select.cc:  sort_by_table= get_sort_by_table(order, group_list, select_lex->leaf_tables);
+../../sql/sql_select.cc:  if (make_join_statistics(this, select_lex->leaf_tables, conds, &keyuse) ||
+../../sql/sql_select.cc:    select_lex->mark_const_derived(zero_result_cause);
+../../sql/sql_select.cc:            select_lex->master_unit()->item) // This is a subquery
+../../sql/sql_select.cc:    if ((group_list=create_distinct_group(thd, select_lex->ref_pointer_array,
+../../sql/sql_select.cc:    (select_lex->ftfunc_list->elements ?  SELECT_NO_JOIN_CACHE : 0);
+../../sql/sql_select.cc:  select_lex->mark_const_derived(zero_result_cause);
+../../sql/sql_select.cc:  if (!select_lex->outer_select() &&                            // (1)
+../../sql/sql_select.cc:      select_lex != select_lex->master_unit()->fake_select_lex) // (2)
+../../sql/sql_select.cc:    if (select_lex->uncacheable && init_save_join_tab())
+../../sql/sql_select.cc:  if (select_lex->expr_cache_may_be_used[IN_WHERE] ||
+../../sql/sql_select.cc:      select_lex->expr_cache_may_be_used[IN_HAVING] ||
+../../sql/sql_select.cc:      select_lex->expr_cache_may_be_used[IN_ON] ||
+../../sql/sql_select.cc:      select_lex->expr_cache_may_be_used[NO_MATTER])
+../../sql/sql_select.cc:  if (select_lex->expr_cache_may_be_used[SELECT_LIST] ||
+../../sql/sql_select.cc:      select_lex->expr_cache_may_be_used[IN_GROUP_BY] ||
+../../sql/sql_select.cc:      select_lex->expr_cache_may_be_used[NO_MATTER])
+../../sql/sql_select.cc:  if (select_lex->expr_cache_may_be_used[NO_MATTER])
+../../sql/sql_select.cc:  unit->offset_limit_cnt= (ha_rows)(select_lex->offset_limit ?
+../../sql/sql_select.cc:                                    select_lex->offset_limit->val_uint() : 0);
+../../sql/sql_select.cc:  if (!join_tab_save && select_lex->master_unit()->uncacheable)
+../../sql/sql_select.cc:                                               select_lex->select_number))
+../../sql/sql_select.cc:                                               select_lex->select_number))
+../../sql/sql_select.cc:  if (!tables_list && (table_count || !select_lex->with_sum_func))
+../../sql/sql_select.cc:    (void) return_zero_rows(this, result, select_lex->leaf_tables,
+../../sql/sql_select.cc:  if ((this->select_lex->options & OPTION_SCHEMA_TABLE) &&
+../../sql/sql_select.cc:    select_lex->mark_const_derived(zero_result_cause);
+../../sql/sql_select.cc:      (select_lex->linkage == DERIVED_TABLE_TYPE ||
+../../sql/sql_select.cc:  select_lex->join= 0;
+../../sql/sql_select.cc:  select_lex->context.resolve_in_select_list= TRUE;
+../../sql/sql_select.cc:  if (select_lex->join != 0)
+../../sql/sql_select.cc:    join= select_lex->join;
+../../sql/sql_select.cc:    if (select_lex->linkage != DERIVED_TABLE_TYPE ||
+../../sql/sql_select.cc:      if (select_lex->linkage != GLOBAL_OPTIONS_TYPE)
+../../sql/sql_select.cc:        Item_subselect *subselect= select_lex->master_unit()->item;
+../../sql/sql_select.cc:    select_lex->where= join->conds_history;
+../../sql/sql_select.cc:    select_lex->having= join->having_history;
+../../sql/sql_select.cc:    err|= select_lex->cleanup();
+../../sql/sql_select.cc:    SELECT_LEX_UNIT *unit= join->select_lex->master_unit();
+../../sql/sql_select.cc:      join->select_lex->increase_derived_records(records);
+../../sql/sql_select.cc:  uint m= MY_MAX(select_lex->max_equal_elems,1);
+../../sql/sql_select.cc:    can be not more than select_lex->max_equal_elems such 
+../../sql/sql_select.cc:  if (select_lex->ftfunc_list->elements)
+../../sql/sql_select.cc:      join->select_lex->olap == ROLLUP_TYPE)  /* Check (B3) for ROLLUP */
+../../sql/sql_select.cc:  List_iterator_fast<Item_outer_ref> ref_it(select_lex->inner_refs_list);
+../../sql/sql_select.cc:  if (!join->select_lex->sj_nests.is_empty() &&
+../../sql/sql_select.cc:                                               join->select_lex->select_number))
+../../sql/sql_select.cc:  bool full= !(select_lex->uncacheable) &&  !(thd->lex->describe);
+../../sql/sql_select.cc:  for (tmp_unit= select_lex->first_inner_unit();
+../../sql/sql_select.cc:      !select_lex->subquery_in_having &&
+../../sql/sql_select.cc:      join->select_lex->sj_nests.push_back(table);
+../../sql/sql_select.cc:                                                 join->select_lex->select_number))
+../../sql/sql_select.cc:    List_iterator<TABLE_LIST> ti(join->select_lex->leaf_tables);
+../../sql/sql_select.cc:                                               tab->join->select_lex->select_number))
+../../sql/sql_select.cc:	    join->unit->fake_select_lex->select_limit= 0;
+../../sql/sql_select.cc:  if ((join->select_lex->options & OPTION_SCHEMA_TABLE) &&
+../../sql/sql_select.cc:  if (join->select_lex != join->select_lex->master_unit()->fake_select_lex)
+../../sql/sql_select.cc:    select_lex->set_explain_type(on_the_fly);
+../../sql/sql_select.cc:                                   select_lex->select_number));
+../../sql/sql_select.cc:  item_list.push_back(new Item_string(select_lex->type,
+../../sql/sql_select.cc:                                      strlen(select_lex->type), cs));
+../../sql/sql_select.cc:    select_lex->set_explain_type(on_the_fly);
+../../sql/sql_select.cc:  item_list.push_back(new Item_string(select_lex->type,
+../../sql/sql_select.cc:                                      strlen(select_lex->type),
+../../sql/sql_select.cc:    SELECT_LEX *sl= select_lex->master_unit()->first_select();
+../../sql/sql_select.cc:  if (select_lex->master_unit()->global_parameters->order_list.first)
+../../sql/sql_select.cc:		      (ulong)join->select_lex, join->select_lex->type,
+../../sql/sql_select.cc:  else if (!join->select_lex->master_unit()->derived ||
+../../sql/sql_select.cc:           join->select_lex->master_unit()->derived->is_materialized_derived())
+../../sql/sql_select.cc:    //if (!join->select_lex->type)
+../../sql/sql_select.cc:      join->select_lex->set_explain_type(on_the_fly);
+../../sql/sql_select.cc:    uint select_id= join->select_lex->select_number;
+../../sql/sql_select.cc:                                                    join->select_lex->type;
+../../sql/sql_select.cc:  for (SELECT_LEX_UNIT *unit= join->select_lex->first_inner_unit();
+../../sql/sql_select.cc:    unit->fake_select_lex->select_number= UINT_MAX; // jost for initialization
+../../sql/sql_select.cc:    unit->fake_select_lex->type= "UNION RESULT";
+../../sql/sql_select.cc:    unit->fake_select_lex->options|= SELECT_DESCRIBE;
+../../sql/sql_select.cc:  if (!procedure && (result->prepare(fields_list, select_lex->master_unit()) ||
+../../sql/sql_select.cc:  List_iterator<TABLE_LIST> it(select_lex->sj_nests);
+../../sql/sql_select.cc:  List_iterator<TABLE_LIST> it(select_lex->sj_nests);
+../../sql/sql_yacc.cc:                      $3->select_lex->master_unit()->is_union() &&
+../../sql/sql_yacc.cc:                      ($3->select_lex->master_unit()->first_select() ==
+Binary file ../../sql/CMakeFiles/sql.dir/sql_alter.cc.o matches
+Binary file ../../sql/CMakeFiles/sql.dir/sql_partition_admin.cc.o matches
+Binary file ../../sql/CMakeFiles/sql.dir/sql_insert.cc.o matches
+Binary file ../../sql/CMakeFiles/sql.dir/sql_union.cc.o matches
+Binary file ../../sql/CMakeFiles/sql.dir/sql_parse.cc.o matches
+Binary file ../../sql/CMakeFiles/sql.dir/item_subselect.cc.o matches
+../../sql/sql_alter.cc:  TABLE_LIST *first_table= (TABLE_LIST*) select_lex->table_list.first;
+../../sql/sql_alter.cc:  DBUG_ASSERT(select_lex->db);
+../../sql/sql_alter.cc:      check_access(thd, INSERT_ACL | CREATE_ACL, select_lex->db,
+../../sql/sql_alter.cc:    tmp_table.db= select_lex->db;
+../../sql/sql_alter.cc:  result= mysql_alter_table(thd, select_lex->db, lex->name.str,
+../../sql/sql_alter.cc:                            select_lex->order_list.elements,
+../../sql/sql_alter.cc:                            select_lex->order_list.first,
+../../sql/sql_alter.cc:  TABLE_LIST *table_list= (TABLE_LIST*) select_lex->table_list.first;
+../../sql/sql_base.cc:        !res->select_lex->exclude_from_table_unique_test &&
+../../sql/sql_base.cc:    if (context->select_lex->first_natural_join_processing)
+../../sql/sql_base.cc:  context->select_lex->first_natural_join_processing= false;
+../../sql/sql_base.cc:    select_lex->with_wild= 0;
+../../sql/sql_base.cc:    if (&select_lex->item_list != &fields)      // Avoid warning
+../../sql/sql_base.cc:    if (&select_lex->item_list != &fields)
+../../sql/sql_base.cc:      select_lex->item_list= fields;
+../../sql/sql_base.cc:        It's safe to use select_lex->leaf_tables because all derived
+../../sql/sql_base.cc:      make_leaves_list(list, select_lex->get_table_list(),
+../../sql/sql_base.cc:    tables	  Table list (select_lex->table_list)
+../../sql/sql_base.cc:    leaves        List of join table leaves list (select_lex->leaf_tables)
+../../sql/sql_base.cc:  if (select_lex->first_cond_optimization)
+../../sql/sql_base.cc:    if (!select_lex->is_prep_leaf_list_saved)
+../../sql/sql_base.cc:      select_lex->leaf_tables_exec.empty();
+../../sql/sql_base.cc:      List_iterator_fast <TABLE_LIST> ti(select_lex->leaf_tables_prep);
+../../sql/sql_base.cc:    List_iterator_fast <TABLE_LIST> ti(select_lex->leaf_tables_exec);
+../../sql/sql_base.cc:    select_lex->leaf_tables.empty();
+../../sql/sql_base.cc:      select_lex->leaf_tables.push_back(table_list);
+../../sql/sql_base.cc:    tables	  Table list (select_lex->table_list)
+../../sql/sql_base.cc:    leaves        List of join table leaves list (select_lex->leaf_tables)
+../../sql/sql_base.cc:    tables  list of tables for name resolving (select_lex->table_list)
+../../sql/sql_base.cc:    leaves  list of leaves of join table tree (select_lex->leaf_tables)
+../../sql/sql_base.cc:  bool save_is_item_list_lookup= select_lex->is_item_list_lookup;
+../../sql/sql_base.cc:  TABLE_LIST *derived= select_lex->master_unit()->derived;
+../../sql/sql_base.cc:  select_lex->is_item_list_lookup= 0;
+../../sql/sql_base.cc:  select_lex->cond_count= 0;
+../../sql/sql_base.cc:  select_lex->between_count= 0;
+../../sql/sql_base.cc:  select_lex->max_equal_elems= 0;
+../../sql/sql_base.cc:        select_lex->first_cond_optimization &&
+../../sql/sql_base.cc:        select_lex->cond_count++;
+../../sql/sql_base.cc:    select_lex->where= *conds;
+../../sql/sql_base.cc:  select_lex->is_item_list_lookup= save_is_item_list_lookup;
+../../sql/sql_base.cc:  List_iterator<Item_func_match> li(*(select_lex->ftfunc_list)),
+../../sql/sql_base.cc:                                 lj(*(select_lex->ftfunc_list));
+../../sql/sql_base.cc:  if (select_lex->ftfunc_list->elements)
+../../sql/sql_base.cc:    List_iterator<Item_func_match> li(*(select_lex->ftfunc_list));
+Binary file ../../sql/libsql.a matches
+../../sql/sql_union.cc:  fake_select_lex->table_list.link_in_list(&result_table_list,
+../../sql/sql_union.cc:  fake_select_lex->context.table_list= 
+../../sql/sql_union.cc:    fake_select_lex->context.first_name_resolution_table= 
+../../sql/sql_union.cc:    fake_select_lex->get_table_list();
+../../sql/sql_union.cc:  if (!fake_select_lex->first_execution)
+../../sql/sql_union.cc:                         (uchar*) &fake_select_lex->context);
+../../sql/sql_union.cc:    if (fake_select_lex && !fake_select_lex->first_cond_optimization)
+../../sql/sql_union.cc:    if (fake_select_lex && !fake_select_lex->first_cond_optimization)
+../../sql/sql_union.cc:        DBUG_ASSERT(fake_select_lex->join == 0);
+../../sql/sql_union.cc:	if (!(fake_select_lex->join= new JOIN(thd, item_list, thd->variables.option_bits,
+../../sql/sql_union.cc:	  fake_select_lex->table_list.empty();
+../../sql/sql_union.cc:	fake_select_lex->item_list= item_list;
+../../sql/sql_union.cc:        fake_select_lex->n_child_sum_items+= global_parameters->n_sum_items;
+../../sql/sql_union.cc:	saved_error= fake_select_lex->join->
+../../sql/sql_union.cc:	  prepare(&fake_select_lex->ref_pointer_array,
+../../sql/sql_union.cc:		  fake_select_lex->table_list.first,
+../../sql/sql_union.cc:	fake_select_lex->table_list.empty();
+../../sql/sql_union.cc:      JOIN *join= fake_select_lex->join;
+../../sql/sql_union.cc:	if (!(fake_select_lex->join= new JOIN(thd, item_list,
+../../sql/sql_union.cc:					      fake_select_lex->options, result)))
+../../sql/sql_union.cc:	  fake_select_lex->table_list.empty();
+../../sql/sql_union.cc:        fake_select_lex->join->no_const_tables= TRUE;
+../../sql/sql_union.cc:        fake_select_lex->item_list= item_list;
+../../sql/sql_union.cc:        if (!fake_select_lex->ref_pointer_array)
+../../sql/sql_union.cc:          fake_select_lex->n_child_sum_items+= global_parameters->n_sum_items;
+../../sql/sql_union.cc:        saved_error= mysql_select(thd, &fake_select_lex->ref_pointer_array,
+../../sql/sql_union.cc:                              fake_select_lex->options | SELECT_NO_UNLOCK,
+../../sql/sql_union.cc:	  join->init(thd, item_list, fake_select_lex->options, result);
+../../sql/sql_union.cc:          saved_error= mysql_select(thd, &fake_select_lex->ref_pointer_array,
+../../sql/sql_union.cc:                                fake_select_lex->options | SELECT_NO_UNLOCK,
+../../sql/sql_union.cc:      fake_select_lex->table_list.empty();
+../../sql/sql_union.cc:    if ((join= fake_select_lex->join))
+../../sql/sql_union.cc:    error|= fake_select_lex->cleanup();
+../../sql/sql_union.cc:  if (fake_select_lex && fake_select_lex->join)
+../../sql/sql_union.cc:    res= fake_select_lex->join->change_result(new_result);
+../../sql/item_sum.cc:                                  (select_lex->options | thd->variables.option_bits),
+../../sql/item_sum.cc:                                (select_lex->options |
+../../sql/sql_parse.cc:      db.str= schema_select_lex->db= lex->select_lex.db;
+../../sql/sql_parse.cc:      schema_select_lex->table_list.first= NULL;
+../../sql/sql_parse.cc:    schema_select_lex->parent_lex= lex;
+../../sql/sql_parse.cc:    schema_select_lex->init_query();
+../../sql/sql_parse.cc:    if (!schema_select_lex->add_table_to_list(thd, table_ident, 0, 0, TL_READ,
+../../sql/sql_parse.cc:  TABLE_LIST *table_list= select_lex->table_list.first;
+../../sql/sql_parse.cc:  TABLE_LIST *first_table= select_lex->table_list.first;
+../../sql/sql_parse.cc:  select_lex->
+../../sql/sql_parse.cc:    context.resolve_in_table_list_only(select_lex->
+../../sql/sql_parse.cc:    if (select_lex->item_list.elements)		// With select
+../../sql/sql_parse.cc:        List_iterator_fast<Item> it(select_lex->item_list);
+../../sql/sql_parse.cc:      select_lex->options|= SELECT_NO_UNLOCK;
+../../sql/sql_parse.cc:                                       select_lex->item_list,
+../../sql/sql_parse.cc:    DBUG_ASSERT(select_lex->offset_limit == 0);
+../../sql/sql_parse.cc:                                  select_lex->item_list,
+../../sql/sql_parse.cc:                                  select_lex->where,
+../../sql/sql_parse.cc:                                  select_lex->order_list.elements,
+../../sql/sql_parse.cc:                                  select_lex->order_list.first,
+../../sql/sql_parse.cc:                              &select_lex->item_list,
+../../sql/sql_parse.cc:                              select_lex->where,
+../../sql/sql_parse.cc:                              select_lex->options,
+../../sql/sql_parse.cc:    select_lex->options|= SELECT_NO_UNLOCK;
+../../sql/sql_parse.cc:      select_lex->table_list.first= second_table;
+../../sql/sql_parse.cc:      select_lex->context.table_list= 
+../../sql/sql_parse.cc:        select_lex->context.first_name_resolution_table= second_table;
+../../sql/sql_parse.cc:      select_lex->table_list.first= first_table;
+../../sql/sql_parse.cc:    DBUG_ASSERT(select_lex->offset_limit == 0);
+../../sql/sql_parse.cc:    res = mysql_delete(thd, all_tables, select_lex->where,
+../../sql/sql_parse.cc:                       &select_lex->order_list,
+../../sql/sql_parse.cc:                       unit->select_limit_cnt, select_lex->options);
+../../sql/sql_parse.cc:    if (select_lex->item_list.elements != 0)
+../../sql/sql_parse.cc:      select_lex->item_list.empty();
+../../sql/sql_parse.cc:      res= mysql_select(thd, &select_lex->ref_pointer_array,
+../../sql/sql_parse.cc:			select_lex->get_table_list(),
+../../sql/sql_parse.cc:			select_lex->with_wild,
+../../sql/sql_parse.cc:			select_lex->item_list,
+../../sql/sql_parse.cc:			select_lex->where,
+../../sql/sql_parse.cc:			(select_lex->options | thd->variables.option_bits |
+../../sql/sql_parse.cc:    LEX_STRING db_str= { (char *) select_lex->db, strlen(select_lex->db) };
+../../sql/sql_parse.cc:                     first_table ?  first_table->db : select_lex->db,
+../../sql/sql_parse.cc:        res = mysql_grant(thd, select_lex->db, lex->users_list, lex->grant,
+../../sql/sql_parse.cc:                       lex->insert_list, lex->ha_rkey_mode, select_lex->where,
+../../sql/sql_parse.cc:    const char *dst_db_name= table->schema_select_lex->db;
+../../sql/sql_parse.cc:    dst_table= table->schema_select_lex->table_list.first;
+../../sql/sql_parse.cc:  This function is a wrapper around select_lex->init_select() with an added
+../../sql/sql_parse.cc:  select_lex->init_select();
+../../sql/sql_parse.cc:  select_lex->select_number= ++thd->select_number;
+../../sql/sql_parse.cc:  select_lex->parent_lex= lex; /* Used in init_query. */
+../../sql/sql_parse.cc:  select_lex->init_query();
+../../sql/sql_parse.cc:  select_lex->init_select();
+../../sql/sql_parse.cc:  select_lex->nest_level= lex->nest_level;
+../../sql/sql_parse.cc:  select_lex->nest_level_base= &thd->lex->unit;
+../../sql/sql_parse.cc:    select_lex->include_down(unit);
+../../sql/sql_parse.cc:    select_lex->context.outer_context= &select_lex->outer_select()->context;
+../../sql/sql_parse.cc:    select_lex->include_neighbour(lex->current_select);
+../../sql/sql_parse.cc:    SELECT_LEX_UNIT *unit= select_lex->master_unit();                              
+../../sql/sql_parse.cc:    select_lex->context.outer_context= 
+../../sql/sql_parse.cc:  select_lex->master_unit()->global_parameters= select_lex;
+../../sql/sql_parse.cc:  select_lex->include_global((st_select_lex_node**)&lex->all_selects_list);
+../../sql/sql_parse.cc:  select_lex->context.resolve_in_select_list= TRUE;
+../../sql/sql_parse.cc:  fake_select_lex->include_standalone(this, 
+../../sql/sql_parse.cc:  fake_select_lex->select_number= INT_MAX;
+../../sql/sql_parse.cc:  fake_select_lex->parent_lex= thd_arg->lex; /* Used in init_query. */
+../../sql/sql_parse.cc:  fake_select_lex->make_empty_select();
+../../sql/sql_parse.cc:  fake_select_lex->linkage= GLOBAL_OPTIONS_TYPE;
+../../sql/sql_parse.cc:  fake_select_lex->select_limit= 0;
+../../sql/sql_parse.cc:  fake_select_lex->context.outer_context=first_sl->context.outer_context;
+../../sql/sql_parse.cc:  fake_select_lex->context.resolve_in_select_list= TRUE;
+../../sql/sql_parse.cc:  fake_select_lex->context.select_lex= fake_select_lex;
+../../sql/sql_parse.cc:    fake_select_lex->no_table_names_allowed= 1;
+../../sql/sql_parse.cc:  if (select_lex->item_list.elements != lex->value_list.elements)
+../../sql/sql_parse.cc:  if (select_lex->order_list.elements)
+../../sql/sql_parse.cc:  else if (select_lex->select_limit)
+../../sql/sql_parse.cc:  if ((thd->variables.option_bits & OPTION_SAFE_UPDATES) && !select_lex->where)
+../../sql/sql_parse.cc:             (CREATE_ACL | (select_lex->item_list.elements ? INSERT_ACL : 0));
+../../sql/sql_parse.cc:  if (select_lex->item_list.elements)
+../../sql/opt_range.cc:      (join->select_lex->olap == ROLLUP_TYPE)) /* Check (B3) for ROLLUP */
+../../sql/item_subselect.cc:  unit= select_lex->master_unit();
+../../sql/item_subselect.cc:  if (!select_lex->master_unit()->is_union() &&
+../../sql/item_subselect.cc:      !select_lex->table_list.elements &&
+../../sql/item_subselect.cc:      select_lex->item_list.elements == 1 &&
+../../sql/item_subselect.cc:      !select_lex->item_list.head()->with_sum_func &&
+../../sql/item_subselect.cc:      !(select_lex->item_list.head()->type() == FIELD_ITEM ||
+../../sql/item_subselect.cc:	select_lex->item_list.head()->type() == REF_ITEM) &&
+../../sql/item_subselect.cc:      sprintf(warn_buff, ER(ER_SELECT_REDUCED), select_lex->select_number);
+../../sql/item_subselect.cc:    substitution= select_lex->item_list.head();
+../../sql/item_subselect.cc:    substitution->fix_after_pullout(select_lex->outer_select(), &substitution);
+../../sql/item_subselect.cc:      unit_arg->fake_select_lex->test_limit())
+../../sql/item_subselect.cc:  test_limit(select_lex->master_unit());
+../../sql/item_subselect.cc:  test_limit(select_lex->master_unit());
+../../sql/item_subselect.cc:  if (select_lex->item_list.elements > 1)
+../../sql/item_subselect.cc:  if (!(join_having || select_lex->with_sum_func ||
+../../sql/item_subselect.cc:        select_lex->group_list.elements) &&
+../../sql/item_subselect.cc:      select_lex->table_list.elements == 0 &&
+../../sql/item_subselect.cc:      !select_lex->master_unit()->is_union())
+../../sql/item_subselect.cc:    Item *where_item= (Item*) select_lex->item_list.head();
+../../sql/item_subselect.cc:                     (uchar *) select_lex->outer_select());
+../../sql/item_subselect.cc:      sprintf(warn_buff, ER(ER_SELECT_REDUCED), select_lex->select_number);
+../../sql/item_subselect.cc:    expr= new Item_direct_ref(&select_lex->context,
+../../sql/item_subselect.cc:  if (!select_lex->group_list.elements &&                /*1*/
+../../sql/item_subselect.cc:      !select_lex->having &&                             /*1*/
+../../sql/item_subselect.cc:      !select_lex->with_sum_func &&                      /*1*/
+../../sql/item_subselect.cc:      !(select_lex->next_select()) &&                    /*2*/
+../../sql/item_subselect.cc:      select_lex->table_list.elements &&                 /*3*/
+../../sql/item_subselect.cc:      (!select_lex->ref_pointer_array[0]->maybe_null ||  /*4*/
+../../sql/item_subselect.cc:      item= new Item_sum_max(*select_lex->ref_pointer_array);
+../../sql/item_subselect.cc:      item= new Item_sum_min(*select_lex->ref_pointer_array);
+../../sql/item_subselect.cc:    thd->change_item_tree(select_lex->ref_pointer_array, item);
+../../sql/item_subselect.cc:      List_iterator<Item> it(select_lex->item_list);
+../../sql/item_subselect.cc:  select_lex->master_unit()->uncacheable&= ~UNCACHEABLE_DEPENDENT_INJECTED;
+../../sql/item_subselect.cc:  select_lex->uncacheable&= ~UNCACHEABLE_DEPENDENT_INJECTED;
+../../sql/item_subselect.cc:    select_lex->having_fix_field= 1;
+../../sql/item_subselect.cc:    select_lex->having_fix_field= 0;
+../../sql/item_subselect.cc:      !(join->select_lex->master_unit()->uncacheable & ~UNCACHEABLE_EXPLAIN) && !func->eqne_op();
+../../sql/item_subselect.cc:  if (join_having || select_lex->with_sum_func ||
+../../sql/item_subselect.cc:      select_lex->group_list.elements)
+../../sql/item_subselect.cc:                             new Item_ref_null_helper(&select_lex->context,
+../../sql/item_subselect.cc:                                                      select_lex->
+../../sql/item_subselect.cc:    Item *item= (Item*) select_lex->item_list.head()->real_item();
+../../sql/item_subselect.cc:    if (select_lex->table_list.elements)
+../../sql/item_subselect.cc:      if (select_lex->master_unit()->is_union())
+../../sql/item_subselect.cc:                       new Item_ref_null_helper(&select_lex->context, this,
+../../sql/item_subselect.cc:                                            select_lex->ref_pointer_array,
+../../sql/item_subselect.cc:  if (select_lex->item_list.elements != cols_num)
+../../sql/item_subselect.cc:    SELECT_LEX_UNIT *master_unit= select_lex->master_unit();
+../../sql/item_subselect.cc:    select_lex->uncacheable|= UNCACHEABLE_EXPLAIN;
+../../sql/item_subselect.cc:  bool is_having_used= (join_having || select_lex->with_sum_func ||
+../../sql/item_subselect.cc:                        select_lex->group_list.first ||
+../../sql/item_subselect.cc:                        !select_lex->table_list.elements);
+../../sql/item_subselect.cc:                  select_lex->ref_pointer_array[i]->fixed) ||
+../../sql/item_subselect.cc:                  (select_lex->ref_pointer_array[i]->type() == REF_ITEM &&
+../../sql/item_subselect.cc:                   ((Item_ref*)(select_lex->ref_pointer_array[i]))->ref_type() ==
+../../sql/item_subselect.cc:      if (select_lex->ref_pointer_array[i]->
+../../sql/item_subselect.cc:                         Item_ref(&select_lex->context,
+../../sql/item_subselect.cc:                         Item_ref(&select_lex->context,
+../../sql/item_subselect.cc:                                  select_lex->ref_pointer_array + i,
+../../sql/item_subselect.cc:                             Item_ref(&select_lex->context,
+../../sql/item_subselect.cc:                                      select_lex->ref_pointer_array+i,
+../../sql/item_subselect.cc:                                   new Item_ref(&select_lex->context,
+../../sql/item_subselect.cc:                                                select_lex->
+../../sql/item_subselect.cc:                  select_lex->ref_pointer_array[i]->fixed) ||
+../../sql/item_subselect.cc:                  (select_lex->ref_pointer_array[i]->type() == REF_ITEM &&
+../../sql/item_subselect.cc:                   ((Item_ref*)(select_lex->ref_pointer_array[i]))->ref_type() ==
+../../sql/item_subselect.cc:      if (select_lex->ref_pointer_array[i]->
+../../sql/item_subselect.cc:                         Item_direct_ref(&select_lex->context,
+../../sql/item_subselect.cc:                         Item_direct_ref(&select_lex->context,
+../../sql/item_subselect.cc:                                         select_lex->
+../../sql/item_subselect.cc:      if (!abort_on_null && select_lex->ref_pointer_array[i]->maybe_null)
+../../sql/item_subselect.cc:                                    Item_ref(&select_lex->context, 
+../../sql/item_subselect.cc:                                             select_lex->ref_pointer_array + i,
+../../sql/item_subselect.cc:                           Item_direct_ref(&select_lex->context,
+../../sql/item_subselect.cc:                                           select_lex->
+../../sql/item_subselect.cc:    join_arg->select_lex->uncacheable|= UNCACHEABLE_DEPENDENT_INJECTED;
+../../sql/item_subselect.cc:    join_arg->select_lex->master_unit()->uncacheable|= 
+../../sql/item_subselect.cc:  join_arg->select_lex->master_unit()->uncacheable|= UNCACHEABLE_EXPLAIN;
+../../sql/item_subselect.cc:  join_arg->select_lex->uncacheable|= UNCACHEABLE_EXPLAIN;
+../../sql/item_subselect.cc:    thd->change_item_tree(&select_lex->where, where_item);
+../../sql/item_subselect.cc:    select_lex->where->top_level_item();
+../../sql/item_subselect.cc:    join_arg->conds= select_lex->where;
+../../sql/item_subselect.cc:    thd->change_item_tree(&select_lex->having, having_item);
+../../sql/item_subselect.cc:    select_lex->having->top_level_item();
+../../sql/item_subselect.cc:    join_arg->having= select_lex->having;
+../../sql/item_subselect.cc:  select_lex->master_unit()->item= item_arg;
+../../sql/item_subselect.cc:  return select_lex->select_number; 
+../../sql/item_subselect.cc:  select_lex->uncacheable&= ~UNCACHEABLE_DEPENDENT_INJECTED;
+../../sql/item_subselect.cc:  return test(!unit->fake_select_lex->join->send_records);
+../../sql/item_subselect.cc:  if (select_lex->join)
+../../sql/item_subselect.cc:    select_lex->cleanup();
+../../sql/item_subselect.cc:  join= new JOIN(thd, select_lex->item_list,
+../../sql/item_subselect.cc:		 select_lex->options | SELECT_NO_UNLOCK, result);
+../../sql/item_subselect.cc:  if (join->prepare(&select_lex->ref_pointer_array,
+../../sql/item_subselect.cc:		    select_lex->table_list.first,
+../../sql/item_subselect.cc:		    select_lex->with_wild,
+../../sql/item_subselect.cc:		    select_lex->where,
+../../sql/item_subselect.cc:		    select_lex->order_list.elements +
+../../sql/item_subselect.cc:		    select_lex->group_list.elements,
+../../sql/item_subselect.cc:		    select_lex->order_list.first,
+../../sql/item_subselect.cc:		    select_lex->group_list.first,
+../../sql/item_subselect.cc:		    select_lex->having,
+../../sql/item_subselect.cc:		    select_lex->master_unit()))
+../../sql/item_subselect.cc:  DBUG_ASSERT(row || select_lex->item_list.elements==1);
+../../sql/item_subselect.cc:  set_row(select_lex->item_list, row);
+../../sql/item_subselect.cc:    SELECT_LEX_UNIT *unit= select_lex->master_unit();
+../../sql/item_subselect.cc:    if (!select_lex->uncacheable && thd->lex->describe && 
+../../sql/item_subselect.cc:        select_lex->uncacheable|= UNCACHEABLE_EXPLAIN;
+../../sql/item_subselect.cc:        select_lex->master_unit()->uncacheable|= UNCACHEABLE_EXPLAIN;
+../../sql/item_subselect.cc:  if (select_lex->uncacheable &&
+../../sql/item_subselect.cc:      select_lex->uncacheable != UNCACHEABLE_EXPLAIN
+../../sql/item_subselect.cc:  //DBUG_ASSERT(select_lex->join != 0); // should be called after fix_fields()
+../../sql/item_subselect.cc:  //return select_lex->join->fields_list.elements;
+../../sql/item_subselect.cc:  return select_lex->item_list.elements;
+../../sql/item_subselect.cc:  return select_lex->uncacheable;
+../../sql/item_subselect.cc:  select_lex->master_unit()->exclude_level();
+../../sql/item_subselect.cc:  return calc_const_tables(select_lex->outer_select()->leaf_tables);
+../../sql/item_subselect.cc:  select_lex->print(thd, str, query_type);
+../../sql/item_subselect.cc:  DBUG_RETURN(select_lex->join->change_result(res));
+../../sql/item_subselect.cc:  return(select_lex->table_list.elements == 0);
+../../sql/#sql_yacc.yy#:                      $3->select_lex->master_unit()->is_union() &&
+../../sql/#sql_yacc.yy#:                      ($3->select_lex->master_unit()->first_select() ==
+../../sql/opt_subselect.cc:  select_lex->sj_subselects list to be populated for every EXECUTE. 
+../../sql/opt_subselect.cc:  st_select_lex_unit* parent_unit= select_lex->master_unit();
+../../sql/opt_subselect.cc:  if (select_lex == select_lex->master_unit()->fake_select_lex)
+../../sql/opt_subselect.cc:      if (select_lex->item_list.elements != in_subs->left_expr->cols())
+../../sql/opt_subselect.cc:        !select_lex->is_part_of_union() &&                            // 2
+../../sql/opt_subselect.cc:        !select_lex->group_list.elements && !join->order &&           // 3
+../../sql/opt_subselect.cc:        !join->having && !select_lex->with_sum_func &&                // 4
+../../sql/opt_subselect.cc:        select_lex->outer_select()->join &&                           // 6
+../../sql/opt_subselect.cc:        select_lex->outer_select()->leaf_tables.elements &&           // 9
+../../sql/opt_subselect.cc:           select_lex->outer_select()->join->select_options)          // 10
+../../sql/opt_subselect.cc:        select_lex->first_cond_optimization)                          // 11
+../../sql/opt_subselect.cc:        select_lex->outer_select()->sj_subselects.push_back(in_subs);
+../../sql/opt_subselect.cc:              select_lex->outer_select()->sj_subselects.push_back(in_subs);
+../../sql/opt_subselect.cc:           &join->select_lex->prep_where : 
+../../sql/opt_subselect.cc:  List_iterator<TABLE_LIST> ti(join->select_lex->leaf_tables);
+../../sql/opt_subselect.cc:  if (join->select_lex->sj_subselects.is_empty())
+../../sql/opt_subselect.cc:  List_iterator_fast<Item_in_subselect> li(join->select_lex->sj_subselects);
+../../sql/opt_subselect.cc:    in_subq= join->select_lex->sj_subselects.head();
+../../sql/opt_subselect.cc:  //dump_TABLE_LIST_struct(select_lex, select_lex->leaf_tables);
+../../sql/opt_subselect.cc:  bubble_sort<Item_in_subselect>(&join->select_lex->sj_subselects,
+../../sql/opt_subselect.cc:             &join->select_lex->prep_where : 
+../../sql/opt_subselect.cc:  join->select_lex->sj_subselects.empty();
+../../sql/opt_subselect.cc:    parent_join->select_lex->where= parent_join->conds;
+../../sql/opt_subselect.cc:                                              select_lex->select_number);
+../../sql/opt_subselect.cc:    parent_join->select_lex->where= parent_join->conds;
+../../sql/opt_subselect.cc:  List_iterator<TABLE_LIST> sj_list_it(join->select_lex->sj_nests);
+../../sql/opt_subselect.cc:                                           (&join->select_lex->top_join_list);
+../../sql/opt_subselect.cc:  List_iterator<TABLE_LIST> sj_list_it(join->select_lex->sj_nests);
+../../sql/opt_subselect.cc:  return select_lex->optimize_unflattened_subqueries(false);
+../../sql/opt_subselect.cc:  ulonglong save_options= select_lex->options;
+../../sql/opt_subselect.cc:  select_lex->options&= ~SELECT_DESCRIBE;
+../../sql/opt_subselect.cc:  res= select_lex->optimize_unflattened_subqueries(true);
+../../sql/opt_subselect.cc:  select_lex->options= save_options;
+../../sql/opt_subselect.cc:        if (new_sink->setup(&engine->select_lex->join->fields_list) ||
+../../sql/opt_subselect.cc:            engine->select_lex->join->change_result(new_sink) ||
+../../sql/opt_subselect.cc:  if (select_lex == select_lex->master_unit()->fake_select_lex)
+../../sql/opt_subselect.cc:                                          select_lex->item_list.elements);
+../../sql/opt_subselect.cc:    select_lex->uncacheable&= ~UNCACHEABLE_DEPENDENT_INJECTED;
+../../sql/opt_subselect.cc:      select_lex->uncacheable|= UNCACHEABLE_DEPENDENT_INJECTED;
+../../sql/sql_lex.cc:  Name_resolution_context *context= &select_lex->context;
+../../sql/sql_lex.cc:      (!(table_list= select_lex->add_table_to_list(thd,
+../../sql/sql_lex.cc:  select_lex->cur_pos_in_select_list= UNDEF_POS;
+../../sql/sql_lex.cc:    if (fake_select_lex->order_list.elements)
+../../sql/sql_lex.cc:      fake_select_lex->print_order(str,
+../../sql/sql_lex.cc:        fake_select_lex->order_list.first,
+../../sql/sql_lex.cc:    fake_select_lex->print_limit(thd, str, query_type);
+../../sql/sql_lex.cc:  if (view->select_lex->master_unit() == &unit &&
+../../sql/sql_lex.cc:    for (SELECT_LEX_UNIT *unit= join->select_lex->first_inner_unit();
+../../sql/sql_lex.cc:  /* Note: fake_select_lex->join may be NULL or non-NULL at this point */
+../../sql/table.cc:        li(*(select_lex->ftfunc_list));
+../../sql/table.cc:  return (select_lex ? select_lex->master_unit()->item : 0);
+../../sql/table.cc:    List_iterator<TABLE_LIST> ti(select_lex->leaf_tables);
+../../storage/spider/ha_spider.cc:      select_lex->table_list.elements != 1 ||
+../../storage/spider/ha_spider.cc:    if (select_lex->order_list.elements)
+../../storage/spider/ha_spider.cc:      for (order = (ORDER *) select_lex->order_list.first; order;
+../../storage/spider/ha_spider.cc:      select_lex->table_list.elements != 1 ||
+../../storage/spider/ha_spider.cc:    if (select_lex->order_list.elements)
+../../storage/spider/ha_spider.cc:      for (order = (ORDER *) select_lex->order_list.first; order;
+../../storage/spider/ha_spider.cc:    List_iterator_fast<Item> fi(table->pos_in_table_list->select_lex->
+../../storage/spider/ha_spider.cc:      (!select_lex->explicit_limit || !select_limit)
+../../storage/spider/spd_db_mysql.cc:  if (select_lex->order_list.first)
+../../storage/spider/spd_db_mysql.cc:    for (order = (ORDER *) select_lex->order_list.first; order;
+../../storage/spider/spd_table.cc:    select_lex && select_lex->explicit_limit &&
+../../storage/spider/spd_table.cc:    !(select_lex->options & OPTION_FOUND_ROWS) &&
+../../storage/spider/spd_table.cc:    !select_lex->group_list.elements &&
+../../storage/spider/spd_table.cc:    !select_lex->with_sum_func
+../../storage/spider/spd_table.cc:      !select_lex->explicit_limit ||
+../../storage/spider/spd_table.cc:      (select_lex->options & OPTION_FOUND_ROWS) ||
+../../storage/spider/spd_table.cc:      select_lex->group_list.elements ||
+../../storage/spider/spd_table.cc:      select_lex->with_sum_func ||
+../../storage/spider/spd_table.cc:      select_lex->having ||
+../../storage/spider/spd_table.cc:      select_lex->table_list.elements != 1 ||
+../../storage/spider/spd_table.cc:      !select_lex->order_list.elements ||
+../../storage/spider/spd_table.cc:    for (order = (ORDER *) select_lex->order_list.first; order;
+../../storage/spider/spd_db_oracle.cc:    if (select_lex->order_list.first)
+../../storage/spider/spd_db_oracle.cc:      for (order = (ORDER *) select_lex->order_list.first; order;
+../../storage/spider/spd_db_oracle.cc:  if (select_lex->order_list.first)
+../../storage/spider/spd_db_oracle.cc:    for (order = (ORDER *) select_lex->order_list.first; order;
+Binary file ../../unittest/mysys/explain_filename-t matches
